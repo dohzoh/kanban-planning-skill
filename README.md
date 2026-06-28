@@ -31,7 +31,7 @@ kanban-planning/
 ## Installation
 
 ```bash
-npx skills add cline-community/kanban-planning
+npx skills add dohzoh/kanban-planning-skill
 ```
 
 Or copy the `kanban-planning/` directory into your agent's skills directory.
