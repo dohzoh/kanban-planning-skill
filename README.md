@@ -1,50 +1,30 @@
-# kanban-planning
+# Kanban Skills
 
-Decomposes user requirements into fine-grained kanban cards (~1-2 hours each) with clear acceptance criteria, files to modify, and implementation notes. Reduces agent interpretation ambiguity through structured task decomposition.
+A collection of kanban orchestration skills for AI agents.
 
-## Usage
+## Skills
 
-This skill is automatically available to skills-compatible agents (Cline, Claude Code, Codex, OpenCode, etc.). The agent will activate it when it detects planning or task decomposition tasks.
-
-**Trigger phrases:**
-- "Break this down into kanban cards"
-- "Create tasks for this feature"
-- "Plan this implementation"
-- "Decompose this request"
-
-## Prerequisites
-
-- [Kanban CLI](https://github.com/cline/kanban) (optional) — run `npx kanban` from your repo root for automated card creation
-- Without kanban CLI, the skill outputs structured markdown format for manual card creation
+| Skill | Platform | Description |
+|---|---|---|
+| `skills/cline-kanban/` | Cline Kanban (CLI) | Decompose requirements into structured kanban cards (~1-2 hours) with clear acceptance criteria, files to modify, and dependency chains. |
+| `skills/hermes-kanban/` | Hermes Agent | Multi-agent board with durable SQLite-backed tasks, worker tool surface, structured handoffs, retry/recovery, and human-in-the-loop support. |
 
 ## Structure
 
 ```
-kanban-planning/
-├── SKILL.md                      # Agent instructions
-├── references/
-│   ├── decomposition-patterns.md # Task sizing and dependency guidelines
-│   └── card-templates.md         # Card content templates and examples
-└── scripts/                      # Reserved for future automation
+skills/
+├── cline-kanban/          # Cline Kanban planning skill
+│   ├── SKILL.md           # Agent instructions
+│   ├── .clinerules        # Cline-specific rules
+│   ├── references/        # Templates and decomposition patterns
+│   └── docs/              # Design documents
+└── hermes-kanban/         # Hermes Agent kanban skill
+    └── SKILL.md           # Agent instructions
 ```
 
-## Installation
+## Usage
 
-```bash
-npx skills add dohzoh/kanban-planning-skill
-```
-
-Or copy the `kanban-planning/` directory into your agent's skills directory.
-
-## How It Works
-
-1. **Analyze** the user's request for project type and key components
-2. **Check** kanban CLI availability
-3. **Identify** major features (2-4 hour chunks)
-4. **Decompose** to tasks (~1 hour each)
-5. **Identify** dependencies for linking
-6. **Format** cards using structured template
-7. **Create** cards via CLI or output markdown
+Each skill is self-contained. Point your agent's skill loader to the relevant `skills/<name>/` directory, or copy the desired `SKILL.md` into your agent's skill configuration.
 
 ## License
 
