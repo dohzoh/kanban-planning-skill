@@ -22,6 +22,13 @@ skills/
     └── SKILL.md           # Agent instructions
 ```
 
+## Installation
+
+```bash
+npx -y skills add https://github.com/dohzoh/kanban-planning-skill --skill cline-kanban
+npx -y skills add https://github.com/dohzoh/kanban-planning-skill --skill hermes-kanban
+```
+
 ## Usage
 
 Each skill is self-contained. Point your agent's skill loader to the relevant `skills/<name>/` directory, or copy the desired `SKILL.md` into your agent's skill configuration.
