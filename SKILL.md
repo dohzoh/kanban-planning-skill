@@ -33,7 +33,7 @@ Identify the project type, main goals, and key components mentioned. Look for:
 ### Step 2: Check Kanban Availability
 Before decomposition, check if kanban is available:
 ```bash
-npx kanban --version 2>/dev/null && echo "available" || echo "unavailable"
+npx -y kanban --version 2>/dev/null && echo "available" || echo "unavailable"
 ```
 - If available: Create cards via CLI after planning
 - If unavailable: Output structured markdown format with instructions
